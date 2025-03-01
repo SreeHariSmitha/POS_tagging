@@ -1,0 +1,46 @@
+{% extends 'main.html' %} 
+{% block content%} 
+
+<!--login form-->
+<form action="" method="post">
+    {% csrf_token %}
+    
+    {% comment %} {% if errors is not None %} {% endcomment %}
+    {{errors}}
+        
+    {% comment %} {% endif %} {% endcomment %}
+        
+    <div class="loginpagecontent">
+        <div id="form" class="login">
+            <h1 id="headerTitle">LOGIN</h1>
+            <div class="LOGIN-1">
+                <label for="login-1">
+                    <h5>Username</h5>
+                </label><br />
+                <input type="text" id="login-1" placeholder="Enter Username" name="username" required /><br /><br />
+            </div>
+            <div class="LOGIN-2">
+                <label for="login-2">
+                    <h5>Password</h5>
+                </label><br />
+                <input type="password" id="login-2" placeholder="Enter Password" name="password" required /><br />
+                <div id="passwordHelpBlock" class="form-text">
+                    Your password must be 8-20 characters long,contain letters <br />and
+                    numbers, and must not contain spaces or emojis.
+                </div>
+                <br />
+            </div>
+            <!--login button-->
+            <div class="LOGIN-3">
+                <input type="submit" value="submit" />
+            </div>
+            <!--forgot password-->
+
+            <!--Sign up button-->
+            <div class="LOGIN-5">
+                <p>Don't have an account? <a href="{% url 'register' %}">SIGN UP</a></p>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

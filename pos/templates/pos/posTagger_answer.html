@@ -1,0 +1,24 @@
+{% extends 'main.html' %} {% block content %}
+<p class="sentance">{{sentance}}</p>
+<div class="wordTagBoxParent">
+  {% for word,tag in words_tags %}
+  <div class="wordTagChild">
+    <p>{{word}}</p>
+    <p class="tags {{tag}}">{{tag}}</p>
+  </div>
+
+  {% endfor %}
+</div>
+
+<div class="sentances">
+  {% for sentances in data %}
+  <div class="sentance">
+    <a href="{%url 'posTaggerAnswer' sentances.sentance %}"
+      ><p>{{sentances.sentance}}</p>
+    </a>
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock content %}

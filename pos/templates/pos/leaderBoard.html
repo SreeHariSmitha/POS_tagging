@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Position</th>
+        <th scope="col">Username</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for num,names,score in mydata %}
+
+      <tr>
+        <!-- <th scope="row">1</th> -->
+        <td>{{num}}</td>
+        <td>{{names}}</td>
+        <td>{{score}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    
+       
+{% endblock content %}
+    

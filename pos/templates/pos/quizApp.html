@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <form action="" Method = "POST">
+        {% csrf_token %}
+        <div class="question_ans m-3">
+            <div class="que">
+                <p class="fs-2">{{question}}
+                </p>
+                <p class="fs-2">The {{ques_word}} is _____</p>
+            </div>
+            <div class="option m-3">
+                
+                {% for choice in choices %}
+                <p class="fs-3"><input type="radio" name = "choice" value = '{{choice}}'>&nbsp;&nbsp;{{choice}}<br></p>
+                    
+                {% endfor %}
+                <input type="hidden" name = "answer" value = "{{answer}}" >
+                <button class = 'btn btn-primary' type = 'submit' style = 'width: 100px'>Submit</button>
+       
+            </div>
+            
+        </div>
+    </form>    
+    <p class="fs-2 m-3">Score:{{score}}</p>
+
+{% endblock content %}
+    

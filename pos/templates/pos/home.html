@@ -1,0 +1,89 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form method = "post">
+    {% csrf_token %}
+<div class="left_side">
+    <div class="Heading">
+      <h1>POS Tagging</h1>
+      <br />
+    </div>
+    <div class="info">
+      <p>
+        Enter a complete sentence (no single words!) and click at "POS-tag!". The
+        tagging works better<br />
+        when grammar and orthography are correct.
+      </p>
+    </div>
+    <div class="textbox">
+      <label for="text" class="hidden-xs hidden-sm">Text:</label><br /><br />
+      {% comment %} <textarea class="text-control" rows="4" cols="75" id="text">
+  default</textarea
+      > {% endcomment %}
+      {{form.sentance}}
+    </div>
+    <div class="edit_button">
+      <input type="submit" value = "POS-tag">
+    </div>
+  </div>
+  </form>
+<div class="sentances tbody">
+  
+  {% for sentances in data %}
+  <div class="sentance">
+    <a href="{%url 'posTaggerAnswer' sentances.sentance %}"><p>{{sentances.sentance}}</p>
+    </a>
+    
+  </div>
+    
+  {% endfor %}
+    
+</div>
+{% endblock content %}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'main.html' %} 
+{% block content %}
+
+<!--header-->
+<div class="left_side">
+  <div class="Heading">
+    <h1>POS Tagging</h1>
+    <br />
+  </div>
+  <div class="info">
+    <p>
+      Enter a complete sentence (no single words!) and click at "POS-tag!". The
+      tagging works better<br />
+      when grammar and orthography are correct.
+    </p>
+  </div>
+  <div class="textbox">
+    <label for="text" class="hidden-xs hidden-sm">Text:</label><br /><br />
+    <textarea class="text-control" rows="4" cols="75" id="text">
+default</textarea
+    >
+  </div>
+  <div class="edit_button">
+    <input type="submit">
+  </div>
+</div>
+
+
+
+{% endblock content %} {% endcomment %}
